@@ -4,33 +4,45 @@ using Windows.UI.Xaml.Media;
 
 namespace EvD.ListViewExtensions
 {
-	/// <summary>
-	/// AlternateColor extension extends your ListView Control with an alternate row color functionality
-	/// </summary>
-	public static class AlternateRowColor
-	{
-		/// <summary>
-		/// Color for the alternate row backgroundcolor
-		/// </summary>
-		public static readonly DependencyProperty ColorProperty = DependencyProperty.RegisterAttached(
-			"Color",
-			typeof(Brush),
-			typeof(AlternateRowColor),
-			new PropertyMetadata(null, OnColorPropertyChanged));
+    /// <summary>
+    /// AlternateColor extension extends your <see cref="ListViewBase"/> control with 
+    /// an attached <see cref="DependencyProperty"/> property to provide alternate row color functionality
+    /// </summary>
+    public static class AlternateRowColor
+    {
+        /// <summary>
+        /// Attached <see cref="DependencyProperty"/> for binding a <see cref="Brush"/> as an alternate row background color to a <see cref="ListViewBase"/>
+        /// </summary>
+        public static readonly DependencyProperty ColorProperty = DependencyProperty.RegisterAttached(
+            "Color",
+            typeof(Brush),
+            typeof(AlternateRowColor),
+            new PropertyMetadata(null, OnColorPropertyChanged));
 
-		public static Brush GetColor(DependencyObject obj)
-		{
-			return (Brush)obj.GetValue(ColorProperty);
-		}
+        /// <summary>
+        /// Gets the <see cref="Brush"/> associated with the specified <see cref="DependencyObject"/>
+        /// </summary>
+        /// <param name="obj">The <see cref="DependencyObject"/> to get the associated <see cref="Brush"/> from</param>
+        /// <returns>The <see cref="Brush"/> associated with the <see cref="DependencyObject"/></returns>
+        public static Brush GetColor(DependencyObject obj)
+        {
+            return (Brush)obj.GetValue(ColorProperty);
+        }
 
-		public static void SetColor(DependencyObject obj, Brush value)
-		{
-			obj.SetValue(ColorProperty, value);
-		}
+        /// <summary>
+        /// Sets the <see cref="Brush"/> associated with the specified <see cref="DependencyObject"/>
+        /// </summary>
+        /// <param name="obj">The <see cref="DependencyObject"/> to associate the <see cref="Brush"/> with</param>
+        /// <param name="value">The <see cref="Brush"/> for binding to the <see cref="DependencyObject"/></param>
 
-		private static void OnColorPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
-		{
-			ListViewBase listViewBase = sender as ListViewBase;
+        public static void SetColor(DependencyObject obj, Brush value)
+        {
+            obj.SetValue(ColorProperty, value);
+        }
+
+        private static void OnColorPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
+        {
+            ListViewBase listViewBase = sender as ListViewBase;
 
             if (listViewBase == null)
             {
@@ -39,16 +51,16 @@ namespace EvD.ListViewExtensions
 
             listViewBase.ContainerContentChanging -= ContainerContentChanging;
 
-			if (ColorProperty != null)
-			{
-				listViewBase.ContainerContentChanging += ContainerContentChanging;
-			}
-		}
+            if (ColorProperty != null)
+            {
+                listViewBase.ContainerContentChanging += ContainerContentChanging;
+            }
+        }
 
-		private static void ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
-		{
-			var itemContainer = args.ItemContainer as ListViewItem;
-			var itemIndex = sender.IndexFromContainer(itemContainer);
+        private static void ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
+        {
+            var itemContainer = args.ItemContainer as ListViewItem;
+            var itemIndex = sender.IndexFromContainer(itemContainer);
 
             if (itemIndex % 2 == 0)
             {
@@ -58,6 +70,6 @@ namespace EvD.ListViewExtensions
             {
                 itemContainer.Background = null;
             }
-		}
-	}
+        }
+    }
 }
