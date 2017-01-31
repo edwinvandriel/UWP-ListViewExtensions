@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EvD.ListViewExtensions")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Extend your ListViewBase with productive lightweight extensions.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Edwin van Driel")]
 [assembly: AssemblyProduct("ListViewExtensions")]
-[assembly: AssemblyCopyright("Copyright ©  2017 by EvD")]
+[assembly: AssemblyCopyright("Copyright ©  2017 by Edwin van Driel")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

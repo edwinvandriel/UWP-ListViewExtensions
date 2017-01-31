@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvD.ListViewExtensions.Samp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{17C4FCB3-2424-4543-AE3A-BFFB383A0951}"
 	ProjectSection(SolutionItems) = preProject
+		EvD.ListViewExtensions\EvD.ListViewExtensions.nuspec = EvD.ListViewExtensions\EvD.ListViewExtensions.nuspec
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
@@ -24,8 +25,8 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8EE09032-78F0-4124-95E7-A254A06AD205}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{8EE09032-78F0-4124-95E7-A254A06AD205}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{8EE09032-78F0-4124-95E7-A254A06AD205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EE09032-78F0-4124-95E7-A254A06AD205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EE09032-78F0-4124-95E7-A254A06AD205}.Debug|ARM.ActiveCfg = Debug|ARM
 		{8EE09032-78F0-4124-95E7-A254A06AD205}.Debug|ARM.Build.0 = Debug|ARM
 		{8EE09032-78F0-4124-95E7-A254A06AD205}.Debug|x64.ActiveCfg = Debug|x64
@@ -40,9 +41,9 @@ Global
 		{8EE09032-78F0-4124-95E7-A254A06AD205}.Release|x64.Build.0 = Release|x64
 		{8EE09032-78F0-4124-95E7-A254A06AD205}.Release|x86.ActiveCfg = Release|x86
 		{8EE09032-78F0-4124-95E7-A254A06AD205}.Release|x86.Build.0 = Release|x86
-		{73FBD8FA-7D14-48D8-AD76-02FE45DC4166}.Debug|Any CPU.ActiveCfg = Release|x86
-		{73FBD8FA-7D14-48D8-AD76-02FE45DC4166}.Debug|Any CPU.Build.0 = Release|x86
-		{73FBD8FA-7D14-48D8-AD76-02FE45DC4166}.Debug|Any CPU.Deploy.0 = Release|x86
+		{73FBD8FA-7D14-48D8-AD76-02FE45DC4166}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{73FBD8FA-7D14-48D8-AD76-02FE45DC4166}.Debug|Any CPU.Build.0 = Debug|x86
+		{73FBD8FA-7D14-48D8-AD76-02FE45DC4166}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{73FBD8FA-7D14-48D8-AD76-02FE45DC4166}.Debug|ARM.ActiveCfg = Debug|ARM
 		{73FBD8FA-7D14-48D8-AD76-02FE45DC4166}.Debug|ARM.Build.0 = Debug|ARM
 		{73FBD8FA-7D14-48D8-AD76-02FE45DC4166}.Debug|ARM.Deploy.0 = Debug|ARM
