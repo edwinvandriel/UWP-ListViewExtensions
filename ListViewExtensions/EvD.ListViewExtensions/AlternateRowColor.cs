@@ -34,7 +34,6 @@ namespace EvD.ListViewExtensions
         /// </summary>
         /// <param name="obj">The <see cref="DependencyObject"/> to associate the <see cref="Brush"/> with</param>
         /// <param name="value">The <see cref="Brush"/> for binding to the <see cref="DependencyObject"/></param>
-
         public static void SetColor(DependencyObject obj, Brush value)
         {
             obj.SetValue(ColorProperty, value);

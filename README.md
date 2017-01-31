@@ -7,4 +7,10 @@ This is a library with UWP ListViewBase extensions.
 
 ![Sample](ListViewExtensions/EvD.ListViewExtensions.SampleApp/Assets/Screenshots/Screen1.PNG)
 
-Also available on [nuget](https://www.nuget.org/packages/EvD.ListViewExtensions).
+Just include a namespace on your page like <pre><code>xmlns:extensions="using:EvD.ListViewExtensions"</code></pre>
+
+And then extend your ListView in xaml <pre><code>&lt;ListView extensions:AlternateRowColor.Color="LightGray"&gt;&lt;/ListView&gt;</code></pre>
+
+Super simple.
+
+Download also available on [nuget](https://www.nuget.org/packages/EvD.ListViewExtensions).
