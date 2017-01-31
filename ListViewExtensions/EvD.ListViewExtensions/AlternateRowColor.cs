@@ -4,8 +4,14 @@ using Windows.UI.Xaml.Media;
 
 namespace EvD.ListViewExtensions
 {
+	/// <summary>
+	/// AlternateColor extension extends your ListView Control with an alternate row color functionality
+	/// </summary>
 	public static class AlternateRowColor
 	{
+		/// <summary>
+		/// Color for the alternate row backgroundcolor
+		/// </summary>
 		public static readonly DependencyProperty ColorProperty = DependencyProperty.RegisterAttached(
 			"Color",
 			typeof(Brush),

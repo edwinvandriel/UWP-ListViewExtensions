@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("EvD.ListViewExtensions")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EvD.ListViewExtensions")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("Edwin van Driel")]
+[assembly: AssemblyProduct("ListViewExtensions")]
+[assembly: AssemblyCopyright("Copyright ©  2017 by EvD")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
