@@ -30,9 +30,14 @@ namespace EvD.ListViewExtensions
 
 		private static void OnColorPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
 		{
-			ListViewBase listViewBase = (ListViewBase)sender;
+			ListViewBase listViewBase = sender as ListViewBase;
 
-			listViewBase.ContainerContentChanging -= ContainerContentChanging;
+            if (listViewBase == null)
+            {
+                return;
+            }
+
+            listViewBase.ContainerContentChanging -= ContainerContentChanging;
 
 			if (ColorProperty != null)
 			{
@@ -43,12 +48,16 @@ namespace EvD.ListViewExtensions
 		private static void ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
 		{
 			var itemContainer = args.ItemContainer as ListViewItem;
-			var index = sender.IndexFromContainer(itemContainer);
+			var itemIndex = sender.IndexFromContainer(itemContainer);
 
-			if (index % 2 == 0)
-				itemContainer.Background = GetColor(sender);
-			else
-				itemContainer.Background = null;
+            if (itemIndex % 2 == 0)
+            {
+                itemContainer.Background = GetColor(sender);
+            }
+            else
+            {
+                itemContainer.Background = null;
+            }
 		}
 	}
 }
