@@ -48,15 +48,15 @@ namespace EvD.ListViewExtensions
                 return;
             }
 
-            listViewBase.ContainerContentChanging -= ContainerContentChanging;
+            listViewBase.ContainerContentChanging -= ColorContainerContentChanging;
 
             if (ColorProperty != null)
             {
-                listViewBase.ContainerContentChanging += ContainerContentChanging;
+                listViewBase.ContainerContentChanging += ColorContainerContentChanging;
             }
         }
 
-        private static void ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
+        private static void ColorContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
         {
             var itemContainer = args.ItemContainer as ListViewItem;
             var itemIndex = sender.IndexFromContainer(itemContainer);
