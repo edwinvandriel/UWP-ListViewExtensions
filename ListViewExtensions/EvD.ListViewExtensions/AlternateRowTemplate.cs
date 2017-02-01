@@ -15,7 +15,7 @@ namespace EvD.ListViewExtensions
         public static readonly DependencyProperty ItemTemplateProperty = DependencyProperty.RegisterAttached(
             "ItemTemplate",
             typeof(DataTemplate),
-            typeof(AlternateRowColor),
+            typeof(AlternateRowTemplate),
             new PropertyMetadata(null, OnItemTemplatePropertyChanged));
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace EvD.ListViewExtensions
         /// </summary>
         /// <param name="obj">The <see cref="DependencyObject"/> to get the associated <see cref="DataTemplate"/> from</param>
         /// <returns>The <see cref="DataTemplate"/> associated with the <see cref="DependencyObject"/></returns>
-        public static DataTemplate GetItemTemplate(DependencyObject obj)
+        public static DataTemplate GetItemTemplate(ListViewBase obj)
         {
             return (DataTemplate)obj.GetValue(ItemTemplateProperty);
         }
@@ -33,7 +33,7 @@ namespace EvD.ListViewExtensions
         /// </summary>
         /// <param name="obj">The <see cref="DependencyObject"/> to associate the <see cref="DataTemplate"/> with</param>
         /// <param name="value">The <see cref="DataTemplate"/> for binding to the <see cref="DependencyObject"/></param>
-        public static void SetItemTemplate(DependencyObject obj, DataTemplate value)
+        public static void SetItemTemplate(ListViewBase obj, DataTemplate value)
         {
             obj.SetValue(ItemTemplateProperty, value);
         }
