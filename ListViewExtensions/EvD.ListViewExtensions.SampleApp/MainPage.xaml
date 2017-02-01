@@ -12,20 +12,20 @@
         <DataTemplate x:Name="NormalTemplate">
             <TextBlock Text="{Binding }" Foreground="Green"></TextBlock>
         </DataTemplate>
-        
+
         <DataTemplate x:Name="AlternateTemplate">
             <TextBlock Text="{Binding }" Foreground="Orange"></TextBlock>
         </DataTemplate>
     </Page.Resources>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <ListView 
-			x:Name="SampleListView"
+            x:Name="SampleListView"
             ItemTemplate="{StaticResource NormalTemplate}"
             extensions:AlternateRowColor.Color="LightGray"
             extensions:AlternateRowTemplate.ItemTemplate="{StaticResource AlternateTemplate}">
-		</ListView>
-		
+        </ListView>
+
     </Grid>
 </Page>
