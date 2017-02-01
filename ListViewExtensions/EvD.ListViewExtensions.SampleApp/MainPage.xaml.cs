@@ -13,7 +13,7 @@ namespace EvD.ListViewExtensions.SampleApp
     {
         public ObservableCollection<string> SampleCollection{ get; set; }
 
-		public MainPage()
+        public MainPage()
         {
             this.InitializeComponent();
 
