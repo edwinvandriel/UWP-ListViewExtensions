@@ -9,7 +9,6 @@
 	xmlns:extensions="using:EvD.ListViewExtensions">
 
     <Page.Resources>
-        
         <DataTemplate x:Name="NormalTemplate">
             <TextBlock Text="{Binding }" Foreground="Green"></TextBlock>
         </DataTemplate>
@@ -17,7 +16,6 @@
         <DataTemplate x:Name="AlternateTemplate">
             <TextBlock Text="{Binding }" Foreground="Orange"></TextBlock>
         </DataTemplate>
-        
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
