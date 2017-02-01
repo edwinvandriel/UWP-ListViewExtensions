@@ -11,24 +11,23 @@ namespace EvD.ListViewExtensions.SampleApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-		public ObservableCollection<string> SampleCollection{ get; set; }
+        public ObservableCollection<string> SampleCollection{ get; set; }
 
 		public MainPage()
         {
             this.InitializeComponent();
 
-			SampleCollection = new ObservableCollection<string>();
+            SampleCollection = new ObservableCollection<string>();
         }
 
-		protected override void OnNavigatedTo(NavigationEventArgs e)
-		{
-			for (var idx = 0; idx < 1000; idx++)
-			{
-				SampleCollection.Add($"This is row number {idx}");
-			}
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            for (var idx = 0; idx < 1000; idx++)
+            {
+                SampleCollection.Add($"This is row number {idx}");
+            }
 
-			SampleListView.ItemsSource = SampleCollection;
-		}
-
-	}
+            SampleListView.ItemsSource = SampleCollection;
+        }
+    }
 }
