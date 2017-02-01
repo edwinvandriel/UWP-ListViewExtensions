@@ -8,11 +8,23 @@
     mc:Ignorable="d"
 	xmlns:extensions="using:EvD.ListViewExtensions">
 
+    <Page.Resources>
+        <DataTemplate x:Name="NormalTemplate">
+            <TextBlock Text="{Binding }" Foreground="Green"></TextBlock>
+        </DataTemplate>
+        
+        <DataTemplate x:Name="AlternateTemplate">
+            <TextBlock Text="{Binding }" Foreground="Orange"></TextBlock>
+        </DataTemplate>
+    </Page.Resources>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-		<ListView 
+        <ListView 
 			x:Name="SampleListView"
-			extensions:AlternateRowColor.Color="LightGray">
+            ItemTemplate="{StaticResource NormalTemplate}"
+            extensions:AlternateRowColor.Color="LightGray"
+            extensions:AlternateRowTemplate.ItemTemplate="{StaticResource AlternateTemplate}">
 		</ListView>
 		
     </Grid>

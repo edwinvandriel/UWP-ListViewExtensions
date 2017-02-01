@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlternateRowTemplate.cs" />
     <Compile Include="AlternateRowColor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\EvD.ListViewExtensions.rd.xml" />
