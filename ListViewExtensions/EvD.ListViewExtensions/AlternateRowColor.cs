@@ -20,10 +20,10 @@ namespace EvD.ListViewExtensions
             new PropertyMetadata(null, OnColorPropertyChanged));
 
         /// <summary>
-        /// Gets the <see cref="Brush"/> associated with the specified <see cref="DependencyObject"/>
+        /// Gets the <see cref="Brush"/> associated with the specified <see cref="ListViewBase"/>
         /// </summary>
-        /// <param name="obj">The <see cref="DependencyObject"/> to get the associated <see cref="Brush"/> from</param>
-        /// <returns>The <see cref="Brush"/> associated with the <see cref="DependencyObject"/></returns>
+        /// <param name="obj">The <see cref="ListViewBase"/> to get the associated <see cref="Brush"/> from</param>
+        /// <returns>The <see cref="Brush"/> associated with the <see cref="ListViewBase"/></returns>
         public static Brush GetColor(ListViewBase obj)
         {
             return (Brush)obj.GetValue(ColorProperty);
@@ -32,8 +32,8 @@ namespace EvD.ListViewExtensions
         /// <summary>
         /// Sets the <see cref="Brush"/> associated with the specified <see cref="DependencyObject"/>
         /// </summary>
-        /// <param name="obj">The <see cref="DependencyObject"/> to associate the <see cref="Brush"/> with</param>
-        /// <param name="value">The <see cref="Brush"/> for binding to the <see cref="DependencyObject"/></param>
+        /// <param name="obj">The <see cref="ListViewBase"/> to associate the <see cref="Brush"/> with</param>
+        /// <param name="value">The <see cref="Brush"/> for binding to the <see cref="ListViewBase"/></param>
         public static void SetColor(ListViewBase obj, Brush value)
         {
             obj.SetValue(ColorProperty, value);

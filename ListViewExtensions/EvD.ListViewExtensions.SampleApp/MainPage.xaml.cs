@@ -22,12 +22,26 @@ namespace EvD.ListViewExtensions.SampleApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            Fill();
+            SampleListView.ItemsSource = SampleCollection;
+        }
+
+        private void ClearButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            SampleCollection.Clear();
+        }
+
+        private void FillButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Fill();
+        }
+
+        private void Fill()
+        {
             for (var idx = 0; idx < 1000; idx++)
             {
                 SampleCollection.Add($"This is row number {idx}");
             }
-
-            SampleListView.ItemsSource = SampleCollection;
         }
     }
 }

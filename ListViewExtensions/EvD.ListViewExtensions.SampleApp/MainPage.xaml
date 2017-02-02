@@ -16,16 +16,51 @@
         <DataTemplate x:Name="AlternateTemplate">
             <TextBlock Text="{Binding }" Foreground="Orange"></TextBlock>
         </DataTemplate>
+
+        <ControlTemplate x:Name="EmptyTemplate">
+            <TextBlock Text="Nothing to show here. Empty template ! " Foreground="Red"></TextBlock>
+        </ControlTemplate>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
         <ListView 
             x:Name="SampleListView"
+            Grid.Row="0"
             ItemTemplate="{StaticResource NormalTemplate}"
             extensions:AlternateRowColor.Color="LightGray"
-            extensions:AlternateRowTemplate.ItemTemplate="{StaticResource AlternateTemplate}">
+            extensions:AlternateRowTemplate.ItemTemplate="{StaticResource AlternateTemplate}"
+            extensions:EmptyDataTemplate.ControlTemplate="{StaticResource EmptyTemplate}">
         </ListView>
+
+        <Grid Grid.Row="1">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Button 
+                Grid.Column="0" 
+                HorizontalAlignment="Stretch" 
+                Margin="4"
+                Content="empty listview" 
+                Click="ClearButton_Click">
+            </Button>
+            
+            <Button 
+                Grid.Column="1" 
+                HorizontalAlignment="Stretch" 
+                Margin="4"
+                Content="load listview" 
+                Click="FillButton_Click">
+            </Button>
+        </Grid>
 
     </Grid>
 </Page>

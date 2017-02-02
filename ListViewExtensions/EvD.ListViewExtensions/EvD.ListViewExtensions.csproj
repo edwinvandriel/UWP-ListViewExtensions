@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmptyDataTemplate.cs" />
     <Compile Include="AlternateRowTemplate.cs" />
     <Compile Include="AlternateRowColor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

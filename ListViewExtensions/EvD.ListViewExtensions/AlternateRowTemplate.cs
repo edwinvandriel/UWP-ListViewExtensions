@@ -19,20 +19,20 @@ namespace EvD.ListViewExtensions
             new PropertyMetadata(null, OnItemTemplatePropertyChanged));
 
         /// <summary>
-        /// Gets the <see cref="DataTemplate"/> associated with the specified <see cref="DependencyObject"/>
+        /// Gets the <see cref="DataTemplate"/> associated with the specified <see cref="ListViewBase"/>
         /// </summary>
-        /// <param name="obj">The <see cref="DependencyObject"/> to get the associated <see cref="DataTemplate"/> from</param>
-        /// <returns>The <see cref="DataTemplate"/> associated with the <see cref="DependencyObject"/></returns>
+        /// <param name="obj">The <see cref="ListViewBase"/> to get the associated <see cref="DataTemplate"/> from</param>
+        /// <returns>The <see cref="DataTemplate"/> associated with the <see cref="ListViewBase"/></returns>
         public static DataTemplate GetItemTemplate(ListViewBase obj)
         {
             return (DataTemplate)obj.GetValue(ItemTemplateProperty);
         }
 
         /// <summary>
-        /// Sets the <see cref="DataTemplate"/> associated with the specified <see cref="DependencyObject"/>
+        /// Sets the <see cref="DataTemplate"/> associated with the specified <see cref="ListViewBase"/>
         /// </summary>
-        /// <param name="obj">The <see cref="DependencyObject"/> to associate the <see cref="DataTemplate"/> with</param>
-        /// <param name="value">The <see cref="DataTemplate"/> for binding to the <see cref="DependencyObject"/></param>
+        /// <param name="obj">The <see cref="ListViewBase"/> to associate the <see cref="DataTemplate"/> with</param>
+        /// <param name="value">The <see cref="DataTemplate"/> for binding to the <see cref="ListViewBase"/></param>
         public static void SetItemTemplate(ListViewBase obj, DataTemplate value)
         {
             obj.SetValue(ItemTemplateProperty, value);
