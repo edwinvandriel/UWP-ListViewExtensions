@@ -1,4 +1,5 @@
-﻿using Windows.Foundation.Collections;
+﻿using System.Collections.Generic;
+using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -10,8 +11,7 @@ namespace EvD.ListViewExtensions
     /// </summary>
     public static class EmptyDataTemplate
     {
-        private static ControlTemplate _originalTemplate;
-        private static ListViewBase _originalListViewBase;
+        private static Dictionary<int, ControlTemplate> _originalTemplates = new Dictionary<int, ControlTemplate>();
 
         /// <summary>
         /// Attached <see cref="DependencyProperty"/> for binding a <see cref="DataTemplate"/> as an alternate row template to a <see cref="ListViewBase"/>
@@ -44,65 +44,65 @@ namespace EvD.ListViewExtensions
 
         private static void OnControlTemplatePropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
         {
-            _originalListViewBase = sender as ListViewBase;
+            ListViewBase listViewBase = sender as ListViewBase;
 
-            if (_originalListViewBase == null)
+            if (listViewBase == null)
             {
                 return;
             }
-
-            _originalListViewBase.Items.VectorChanged -= Items_VectorChanged;
 
             if (DataTemplateProperty != null)
             {
-                _originalListViewBase.Items.VectorChanged += Items_VectorChanged;
+                var listViewIdentifier = listViewBase.GetHashCode();
+
+                listViewBase.Items.VectorChanged += (s, e) =>
+                {
+                    if (_originalTemplates.ContainsKey(listViewIdentifier) == false)
+                    {
+                        _originalTemplates.Add(listViewIdentifier, listViewBase.Template);
+                    }
+
+                    SetProperTemplate(listViewBase, s.Count, e.CollectionChange);
+                };
             }
         }
 
-        private static void Items_VectorChanged(IObservableVector<object> sender, IVectorChangedEventArgs @event)
-        {
-            if (_originalTemplate == null)
-            {
-                _originalTemplate = _originalListViewBase.Template;
-            }
-
-            SetProperTemplate(sender.Count, @event.CollectionChange);
-        }
-
-        private static void SetProperTemplate(int count, CollectionChange collectionChange = CollectionChange.Reset)
+        private static void SetProperTemplate(ListViewBase listViewBase, int count, CollectionChange collectionChange = CollectionChange.Reset)
         {
             if (count == 0)
             {
-                SetEmptyTemplate();
+                SetEmptyTemplate(listViewBase);
             }
             else
             {
-                SetOriginalTemplate(collectionChange);
+                SetOriginalTemplate(listViewBase, collectionChange);
             }
         }
 
-        private static void SetEmptyTemplate()
+        private static void SetEmptyTemplate(ListViewBase listViewBase)
         {
-            var emptyTemplate = GetControlTemplate(_originalListViewBase);
+            var emptyTemplate = GetControlTemplate(listViewBase);
 
-            if (_originalListViewBase.Template == emptyTemplate)
+            if (listViewBase.Template == emptyTemplate)
             {
                 return;
             }
 
-            _originalListViewBase.Template = emptyTemplate;
+            listViewBase.Template = emptyTemplate;
         }
 
-        private static void SetOriginalTemplate(CollectionChange collectionChange)
+        private static void SetOriginalTemplate(ListViewBase listViewBase, CollectionChange collectionChange)
         {
-            if (_originalTemplate == null)
+            var listViewIdentifier = listViewBase.GetHashCode();
+
+            if (_originalTemplates.ContainsKey(listViewIdentifier) == false)
             {
                 return;
             }
 
-            if (collectionChange != CollectionChange.Reset && _originalListViewBase.Template != _originalTemplate)
+            if (collectionChange != CollectionChange.Reset && listViewBase.Template != _originalTemplates[listViewIdentifier])
             {
-                _originalListViewBase.Template = _originalTemplate;
+                listViewBase.Template = _originalTemplates[listViewIdentifier];
             }
         }
     }

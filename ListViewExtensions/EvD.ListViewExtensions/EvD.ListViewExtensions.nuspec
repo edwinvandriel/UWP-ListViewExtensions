@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/edwinvandriel/UWP-ListViewExtensions</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Extend your ListViewBase with productive lightweight extensions.</description>
-    <releaseNotes>New AlternateRowTemplate extension.</releaseNotes>
+    <releaseNotes>New EmptyDataTemplate extension.</releaseNotes>
     <copyright>Copyright 2017 by Edwin van Driel</copyright>
     <tags>UWP extension listview listviewbase row backgroundcolor alternate</tags>
   </metadata>
